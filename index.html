@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment #5 - JS Basics & DOM Manipulation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="brand">
+                <i data-lucide="sparkles" class="brand-icon"></i>
+                <div class="brand-text">
+                    <span class="brand-title">Assignment #5</span>
+                    <span class="brand-sub">JS & DOM Manipulation</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <button class="nav-btn active" onclick="switchTab('part1')">Part 1</button>
+                <button class="nav-btn" onclick="switchTab('part2')">Part 2</button>
+                <button class="nav-btn" onclick="switchTab('part3')">Part 3</button>
+                <button class="nav-btn" onclick="switchTab('part4')">Part 4: To-Do</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section id="part1" class="tab-content active">
+            <div class="section-header">
+                <span class="section-tag">PART 1</span>
+                <h2>Introduction to JavaScript</h2>
+                <p>Basic syntax, console logging, alerts, variables, and operators.</p>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge">Task 0</span>
+                        <h3>First Script</h3>
+                    </div>
+                    <p class="card-desc">Execute basic scripts, log student info to console, and show an alert dialog.</p>
+                    <div class="card-body">
+                        <button class="btn btn-primary" onclick="runTask0()">
+                        <i data-lucide="play"></i> Run Script & Alert
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge">Task 1</span>
+                        <h3>Variables & Operators</h3>
+                    </div>
+                    <p class="card-desc">Perform arithmetic, string concatenation, and boolean evaluations.</p>
+                    <div class="card-body">
+                        <button class="btn btn-secondary" onclick="runTask1()">
+                        <i data-lucide="cpu"></i> Run Operations
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="console-box">
+                <div class="console-header">
+                    <span><i data-lucide="terminal"></i> Virtual Console Output</span>
+                    <button class="btn-clear" onclick="clearConsole()">Clear Logs</button>
+                </div>
+                <pre id="console-output">// Console logs will appear here when you click buttons above...</pre>
+            </div>
+        </section>
+
+
+        <section id="part2" class="tab-content">
+            <div class="section-header">
+                <span class="section-tag">PART 2</span>
+                <h2>DOM Manipulation</h2>
+                <p>Changing element content, styling, and dynamic element creation/removal.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge">Task 2</span>
+                        <h3>Changing Content</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="target-paragraph" class="interactive-para">This is the original paragraph text.</p>
+                        <button class="btn btn-primary w-full" onclick="changeContent()">
+                        <i data-lucide="refresh-cw"></i> Change Text
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge">Task 3</span>
+                        <h3>Changing Styles</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="style-box" class="style-box">
+                            <span>Dynamic Style Box</span>
+                        </div>
+                        <div class="btn-group mt-3">
+                            <button class="btn btn-outline" onclick="changeBgColor()">Color</button>
+                            <button class="btn btn-outline" onclick="changeFontSize()">Font Size</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge">Task 4</span>
+                        <h3>Create & Remove</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="dynamic-list" class="dynamic-list">
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                        </ul>
+                        <div class="btn-group mt-3">
+                            <button class="btn btn-primary" onclick="addItem()">
+                                <i data-lucide="plus"></i> Add
+                            </button>
+                            <button class="btn btn-danger" onclick="removeItem()">
+                                <i data-lucide="trash-2"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="part3" class="tab-content">
+            <div class="section-header">
+                <span class="section-tag">PART 3</span>
+                <h2>Events</h2>
+                <p>Mouse events, keyboard input listeners, and interactive math calculator.</p>
+            </div>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Task 5</span>
+                    <h3>Mouse Events</h3>
+                </div>
+                <div class="card-body">
+                    <div id="hover-box" class="hover-box" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
+                    Hover over me!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Task 6</span>
+                    <h3>Keyboard Events</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="keyup-input">Type something:</label>
+                        <input type="text" id="keyup-input" class="form-input" placeholder="Type here..." onkeyup="handleKeyUp(event)">
+                    </div>
+                    <div class="mirror-box">
+                        <span class="text-sm">Live Preview:</span>
+                        <p id="keyup-output" class="font-bold">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Task 7</span>
+                    <h3>Calculator</h3>
+                </div>
+                <div class="card-body">
+                    <div class="calc-inputs">
+                        <input type="number" id="calc-num1" class="form-input" placeholder="Num 1">
+                        <input type="number" id="calc-num2" class="form-input" placeholder="Num 2">
+                    </div>
+                    <div class="calc-buttons mt-2">
+                        <button class="btn btn-calc" onclick="calculate('+')">+</button>
+                        <button class="btn btn-calc" onclick="calculate('-')">-</button>
+                        <button class="btn btn-calc" onclick="calculate('*')">&times;</button>
+                        <button class="btn btn-calc" onclick="calculate('/')">&divide;</button>
+                    </div>
+                    <div class="calc-result mt-3">
+                        Result: <span id="calc-output">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        
+        <section id="part4" class="tab-content">
+            <div class="todo-layout">
+                <div class="todo-section">
+                    <h2>To-do list</h2>
+                    <div id="todo-list" class="todo-list mt-4">
+                    </div>
+                </div>
+
+                <div class="todo-section">
+                    <h2>Add new task</h2>
+                    <div class="card mt-4">
+                        <form id="todo-form" onsubmit="handleAddTask(event)">
+                            <div class="form-group">
+                                <label for="task-title">* Title</label>
+                                <input type="text" id="task-title" class="form-input" required placeholder="Assignment 6">
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label for="task-desc">* Description</label>
+                                <textarea id="task-desc" class="form-input textarea" rows="4" required placeholder="Complete assignment on time"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-full mt-4">Add task</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<script src="script.js"></script>
+</body>
+</html>
