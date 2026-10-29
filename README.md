@@ -3,7 +3,7 @@
 
 **Course:** Web Technologies / Front-End Development  
 **University:** Astana IT University  
-**Student:** Aizere  
+**Student:** Arai
 **Group:** SE-2529
 
 ---
@@ -100,9 +100,4 @@ cd assignment5-js-basics
 
 ```
 
----
-
-### ⚠️ Что нужно заменить перед закоммичиванием:
-1. Замени ссылку `[Insert your deployed GitHub Pages / Netlify URL here]` на реальную ссылку с задеплоенным сайтом.
-2. В блоке `git clone` укажи правильное название твоего репозитория, если оно отличается.
 ```

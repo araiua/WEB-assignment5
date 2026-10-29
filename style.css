@@ -521,6 +521,10 @@ body {
   transition: color 0.2s;
 }
 
+.error{
+  color: red;
+}
+
 .btn-icon:hover { color: #ef4444; }
 
 @media (max-width: 768px) {

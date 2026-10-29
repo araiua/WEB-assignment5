@@ -35,7 +35,7 @@ function clearConsole() {
 
 
 function runTask0() {
-  const studentName = "Aizere";
+  const studentName = "Arai";
   const studentGroup = "SE-2529";
 
   console.log(`Student: ${studentName}, Group: ${studentGroup}`);
